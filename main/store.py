@@ -13,14 +13,16 @@ def open_store(msg):
     c = types.InlineKeyboardButton(text="Buy", callback_data="buy")
     keyboard.add(a,b,c)
 
-    bot.send_message(
+
+    bot.send_photo(
         msg.from_user.id,
-        """
+        photo='https://ibb.co/2PnWzDc',
+        caption="""
 🎶 <b>Item: 1</b>
+💰 <b>Price: $10</b>
 --------------------
 <b>Track Name:</b> Blur Musical
         """,
-        file=f'files/music.png',
         parse_mode='html',
         reply_markup=keyboard
     )

@@ -16,9 +16,9 @@ def startBot(msg):
 
     bot.reply_to(
         msg,
-        "",
+        "<b>Welcome To The Official Telegram Mp3 🎶 Music Shop</b>",
         parse_mode='HTML',
-        reply_markup=start_menu()
+        reply_markup=start_menu(),
     )
 
 
