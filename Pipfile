@@ -10,6 +10,7 @@ python-telegram-bot = "*"
 flask = "*"
 stripe = "*"
 pytelegrambotapi = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"

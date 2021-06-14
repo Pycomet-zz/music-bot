@@ -1,13 +1,11 @@
 from config import *
 
 def start_menu():
-    keyboard = types.ReplyKeyboardMarkup(row_width=2)
-    a = types.KeyboardButton("🛒 Store")
-    b = types.KeyboardButton("🛍 Orders")
-    c = types.KeyboardButton("💳 Wallet")
-    d = types.KeyboardButton("📞 Support")
+    keyboard = types.ReplyKeyboardMarkup(row_width=1)
+    a = types.KeyboardButton("🛒 Check Out The MP3 Store")
+    b = types.KeyboardButton("📞 Contact Support For Help")
 
-    keyboard.add(a,b,c,d)
+    keyboard.add(a,b)
     return keyboard
 
 
@@ -22,5 +20,7 @@ def startBot(msg):
         parse_mode='HTML',
         reply_markup=start_menu()
     )
+
+
 
 
