@@ -1,6 +1,7 @@
 import os
 import telegram
 import time
+import stripe
 from flask import Flask, request
 import telebot
 from telebot import types
@@ -21,6 +22,8 @@ TOKEN = os.getenv('TOKEN')
 DEBUG = False
 
 SERVER_URL = os.getenv("SERVER_URL")
+
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 
 bot = telebot.TeleBot(TOKEN)

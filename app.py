@@ -15,6 +15,16 @@ def webhook():
     return "Application running!", 200
 
 
+@server.route("/success")
+def resp():
+    return "Successfully Purchased A Music Track", 200
+
+
+@server.route("/cancel")
+def resp():
+    return "Payment Has Been Canceled!", 200
+
+
 if __name__ == "__main__":
     
     if DEBUG != True:
