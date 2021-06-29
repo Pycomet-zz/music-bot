@@ -21,7 +21,7 @@ def resp():
 
 
 @server.route("/cancel")
-def resp():
+def resps():
     return "Payment Has Been Canceled!", 200
 
 

@@ -19,8 +19,7 @@ logging.basicConfig(
 
 TOKEN = os.getenv('TOKEN')
 
-DEBUG = False
-
+DEBUG = True
 SERVER_URL = os.getenv("SERVER_URL")
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
