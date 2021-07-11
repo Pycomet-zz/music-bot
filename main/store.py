@@ -10,7 +10,7 @@ def keyboard_menu():
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     a = types.InlineKeyboardButton(text="⏮️", callback_data="prev")
     b = types.InlineKeyboardButton(text="⏭️", callback_data="next")
-    c = types.InlineKeyboardButton(text="Buy", callback_data="buy")
+    c = types.InlineKeyboardButton(text="Purchase", callback_data="buy")
     keyboard.add(a,b,c)
     return keyboard
 
@@ -76,9 +76,11 @@ def callback_answer(call):
             photo='https://ibb.co/2PnWzDc',
             caption=f"""
     🎶 <b>Item: {index}</b>
-    💰 <b>Price: ${product['name']}</b>
+    💰 <b>Price: $ 20</b>
     --------------------
-    <b>Track Name:</b> {product['description']}
+    <b>Track Name:</b> {product['name']}
+
+    <b>Description:</b> {product['description']}
             """,
             parse_mode='html',
             reply_markup=keyboard_menu()
