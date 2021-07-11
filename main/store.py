@@ -21,15 +21,18 @@ def open_store(msg):
     # MANAGE PRODUCT SESSION TO BE A CONTINOUS CIRCLE
     global index
     product, index = get_product(products, index)
+    index += 1
 
     bot.send_photo(
         msg.from_user.id,
         photo='https://ibb.co/2PnWzDc',
         caption=f"""
 🎶 <b>Item: {index}</b>
-💰 <b>Price: ${product['name']}</b>
+💰 <b>Price: ${product['metadata']['price']}</b>
 --------------------
-<b>Track Name:</b> {product['description']}
+<b>Name: </b> {product['name']}
+
+{product['metadata']['description']}
         """,
         parse_mode='html',
         reply_markup=keyboard_menu()
@@ -57,10 +60,12 @@ def callback_answer(call):
             call.from_user.id,
             photo='https://ibb.co/2PnWzDc',
             caption=f"""
-    🎶 <b>Item: {index}</b>
-    💰 <b>Price: ${product['name']}</b>
-    --------------------
-    <b>Track Name:</b> {product['description']}
+🎶 <b>Item: {index}</b>
+💰 <b>Price: ${product['metadata']['price']}</b>
+--------------------
+<b>Name: </b> {product['name']}
+
+{product['metadata']['description']}
             """,
             parse_mode='html',
             reply_markup=keyboard_menu()
@@ -75,12 +80,12 @@ def callback_answer(call):
             call.from_user.id,
             photo='https://ibb.co/2PnWzDc',
             caption=f"""
-    🎶 <b>Item: {index}</b>
-    💰 <b>Price: $ 20</b>
-    --------------------
-    <b>Track Name:</b> {product['name']}
+🎶 <b>Item: {index}</b>
+💰 <b>Price: ${product['metadata']['price']}</b>
+--------------------
+<b>Name: </b> {product['name']}
 
-    <b>Description:</b> {product['description']}
+{product['metadata']['description']}
             """,
             parse_mode='html',
             reply_markup=keyboard_menu()

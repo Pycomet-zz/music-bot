@@ -26,9 +26,10 @@ def get_product(data, id):
     return data[id], index
     
 
-def get_next_product(data, id):   
-    if id <= 0 or id >= len(data):
-        index = 0
+def get_next_product(data, id):
+    fig = len(data) - 1   
+    if id == fig:
+        index = 1
     else:
         index = id + 1
 
@@ -37,8 +38,8 @@ def get_next_product(data, id):
 
 
 def get_prev_product(data, id):
-    if id <= 0 or id >= len(data):
-        index = 0
+    if id == 1:
+        index = len(data) - 1
     else:
         index = id - 1
 
