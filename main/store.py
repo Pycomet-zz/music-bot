@@ -1,6 +1,7 @@
 from config import *
 from utils import *
 from models import Product
+from main.support import start_complaint
 
 index = 0  # Index of Product
 payment_id = ""
@@ -17,8 +18,7 @@ def keyboard_menu():
     keyboard.add(a, b, c, d)
     return keyboard
 
-
-@bot.message_handler(regexp="^🛒 Check Out")
+@bot.channel_post_handler(regexp="^🛒 Check Out")
 def open_store(msg):
     "View The Store To Know What Is Going On"
 
@@ -28,7 +28,7 @@ def open_store(msg):
     index += 1
 
     bot.send_photo(
-        msg.from_user.id,
+        msg.message.chat.id,
         photo='https://ibb.co/2PnWzDc',
         caption=f"""
 🎶 <b>Item: {index}</b>
@@ -41,6 +41,8 @@ def open_store(msg):
         parse_mode='html',
         reply_markup=keyboard_menu()
     )
+
+    bot.delete_message(msg.message.chat.id, msg.message.message_id)
 
     return index
 
@@ -60,7 +62,7 @@ def callback_answer(call):
         bot.delete_message(call.message.chat.id, call.message.message_id)
 
         bot.send_photo(
-            call.from_user.id,
+            call.message.chat.id,
             photo='https://ibb.co/2PnWzDc',
             caption=f"""
 🎶 <b>Item: {index}</b>
@@ -80,7 +82,7 @@ def callback_answer(call):
         bot.delete_message(call.message.chat.id, call.message.message_id)
 
         bot.send_photo(
-            call.from_user.id,
+            call.message.chat.id,
             photo='https://ibb.co/2PnWzDc',
             caption=f"""
 🎶 <b>Item: {index}</b>
@@ -103,7 +105,7 @@ def callback_answer(call):
         short_url = shortener.tinyurl.short(payment_url)
 
         msg = bot.send_message(
-            call.from_user.id,
+            call.message.chat.id,
             text=f"""
             
     <b>Make Your Payment Here To Receive Purchase Track</b>;
@@ -128,24 +130,32 @@ You have 15 seconds before this url disappears
             if status == False:
 
                 bot.send_message(
-                    call.from_user.id,
+                    call.message.chat.id,
                     text=f"<b>Failed Attempt! Try Again.</b>",
                     parse_mode='html'
                 )
 
             else:
                 bot.send_message(
-                    call.from_user.id,
+                    call.message.chat.id,
                     text=f"<b> 🎉 Congratulations! Click the link below to download <br>{product['metadata']['location']}</br></b>",
                     parse_mode='html'
                 )
         else:
 
             bot.send_message(
-                call.from_user.id,
+                call.message.chat.id,
                 text=f"<b>Please Make Payments First</b>",
                 parse_mode='html'
             )
+
+    elif call.data == "store":
+
+        open_store(call)
+
+    elif call.data == "help":
+
+        start_complaint(call)
 
     else:
         pass
