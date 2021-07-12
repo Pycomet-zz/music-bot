@@ -1,6 +1,7 @@
 import os
 import telegram
 import time
+import pyshorteners
 import stripe
 from flask import Flask, request
 import telebot
@@ -9,6 +10,8 @@ from models import *
 from dotenv import load_dotenv
 load_dotenv()
 
+
+shortener = pyshorteners.Shortener()
 
 # Logging Setup
 import logging
@@ -28,5 +31,8 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
+ADMIN_ID = os.getenv("ADMIN_ID")
+
 import importdir
 importdir.do("main", globals())
+

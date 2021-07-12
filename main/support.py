@@ -21,5 +21,16 @@ def send_complaint(msg):
     "Sends Complaint Message To Admin"
 
     # get Admin ID
+    bot.send_message(
+        ADMIN_ID,
+        f"<b>Complaint From @{msg.from_user.username} - </b> {msg.text}",
+        parse_mode='html'
+    )
+
+    bot.send_message(
+        msg.from_user.id,
+        "<b>Succesfully sent complaint, you would be contacted by a support agent soon. Thank you for using our service!</b>",
+        parse_mode='html'
+    )
 
     
