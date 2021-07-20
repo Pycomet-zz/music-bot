@@ -1,7 +1,7 @@
 from config import *
 
 
-@bot.channel_post_handler(regexp="^📞 Contact")
+@bot.message_handler(regexp="^📞 Contact")
 def start_complaint(msg):
     "Returns a helper message"
 

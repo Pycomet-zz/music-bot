@@ -18,7 +18,8 @@ def keyboard_menu():
     keyboard.add(a, b, c, d)
     return keyboard
 
-@bot.channel_post_handler(regexp="^🛒 Check Out")
+# @bot.channel_post_handler(regexp="^🛒 Check Out")
+@bot.message_handler(regexp="^🛒 Check Out")
 def open_store(msg):
     "View The Store To Know What Is Going On"
 

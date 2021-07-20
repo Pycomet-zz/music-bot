@@ -10,7 +10,8 @@ def start_menu():
     return keyboard
 
 
-@bot.channel_post_handler(commands=['start'])
+# @bot.channel_post_handler(commands=['start'])
+@bot.message_handler(commands=['start'])
 def startBot(msg):
     user = User(id=msg.chat.id)
     
