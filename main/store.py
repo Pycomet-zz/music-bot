@@ -30,7 +30,7 @@ def open_store(msg):
 
     bot.send_photo(
         msg.message.chat.id,
-        photo='https://ibb.co/2PnWzDc',
+        photo='https://ibb.co/vsGGbDb',
         caption=f"""
 🎶 <b>Item: {index}</b>
 💰 <b>Price: ${product['metadata']['price']}</b>
