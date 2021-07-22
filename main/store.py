@@ -36,6 +36,7 @@ def open_store(msg):
 💰 <b>Price: ${product['metadata']['price']}</b>
 --------------------
 <b>Name: </b> {product['name']}
+<b>Time: {product['metadata']['time']}</b>
 
 {product['metadata']['description']}
         """,
@@ -64,12 +65,13 @@ def callback_answer(call):
 
         bot.send_photo(
             call.message.chat.id,
-            photo='https://ibb.co/2PnWzDc',
+            photo='https://ibb.co/vsGGbDb',
             caption=f"""
 🎶 <b>Item: {index}</b>
 💰 <b>Price: ${product['metadata']['price']}</b>
 --------------------
 <b>Name: </b> {product['name']}
+<b>Time: {product['metadata']['time']}</b>
 
 {product['metadata']['description']}
             """,
@@ -84,12 +86,13 @@ def callback_answer(call):
 
         bot.send_photo(
             call.message.chat.id,
-            photo='https://ibb.co/2PnWzDc',
+            photo='https://ibb.co/vsGGbDb',
             caption=f"""
 🎶 <b>Item: {index}</b>
 💰 <b>Price: ${product['metadata']['price']}</b>
 --------------------
 <b>Name: </b> {product['name']}
+<b>Time: </b> {product['metadata']['time']}
 
 {product['metadata']['description']}
             """,
