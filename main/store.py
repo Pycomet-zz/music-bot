@@ -58,6 +58,7 @@ def callback_answer(call):
     global index
     global payment_id
 
+
     if call.data == "prev":
         product, index = get_prev_product(products, index)
 
